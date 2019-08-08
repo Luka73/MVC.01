@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>COTI Informática</title>
+
+    <!-- folhas de estilo CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="card card-body bg-dark">
+        <h3 class="text-white">Projeto de Controle de Funcionários</h3>
+        <p class="text-white">
+            Sistema desenvolvido em Asp.Net MVC com SqlServer, AutoMapper e SimpleInjector
+        </p>
+    </div>
+
+    <!-- área de conteudo principal da página -->
+    <div class="container">
+        <br />
+        @RenderBody()
+    </div>
+
+    <!-- arquivos JavaScript -->
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

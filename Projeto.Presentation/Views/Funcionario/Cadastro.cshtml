@@ -1,0 +1,36 @@
+﻿@model Projeto.Presentation.Models.FuncionarioCadastroModel
+
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Cadastro de Funcionários</h4>
+<a href="/Home/Index">Página Inicial</a>
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="text-danger">
+        @Html.ValidationSummary()
+    </div>
+
+    <label>Nome: </label>
+    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control col-md-4" })
+    <br />
+
+    <label>Salário: </label>
+    @Html.TextBoxFor(model => model.Salario, new { @class = "form-control col-md-4" })
+    <br />
+
+    <label>Data de Admissão: </label>
+    @Html.TextBoxFor(model => model.DataAdmissao, new { @class = "form-control col-md-4", @type = "date" })
+    <br />
+
+    <input type="submit" class="btn btn-success" value="Cadastrar Funcionário" />
+    <br />
+    <br />
+
+    <strong> @TempData["Mensagem"] </strong>
+}
+
