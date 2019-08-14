@@ -1,0 +1,54 @@
+﻿@model List<Projeto.Presentation.Models.FuncionarioConsultaModel>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Consulta de Funcionário</h4>
+<a href="/Home/Index">Página Inicial</a>
+
+<div>
+    @TempData["Mensagem"]
+</div>
+<br />
+@using(Html.BeginForm())
+{
+    <label>Nome do Funcionário: </label>
+    <input type="text" name="Nome" class="form-control col-md-4" placeholder="Digite aqui" />
+    <br />
+
+    <input type="submit" value="Pesquisar Funcionários" class="btn btn-success btn-sm" />
+}
+
+<br />
+<table class="table table-striped table-hover table-bordered"> 
+    <thead>
+        <tr class="bg-dark text-center font-weight-bold" style="color: #fff;">
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Salário</td>
+            <td>Data de Admissão</td>
+            <td colspan="2">Operações</td>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.IdFuncionario</td>
+                <td>@item.Nome</td>
+                <td>@item.Salario.ToString("c")</td>
+                <td>@item.DataAdmissao.ToString("dd/MM/yyyy")</td>
+                <td><a href="/Funcionario/Exclusao/@item.IdFuncionario" class="btn btn-danger">Excluir</a></td>
+                <td><a href="/Funcionario/Edicao/@item.IdFuncionario" class="btn btn-warning">Atualizar</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6"> Quantidade de registros: @Model.Count</td>
+        </tr>
+    </tfoot>
+</table>
+

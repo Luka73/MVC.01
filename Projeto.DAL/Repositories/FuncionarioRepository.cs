@@ -105,6 +105,7 @@ namespace Projeto.DAL.Repositories
             string query = "select * from Funcionario where Nome like @Nome";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Nome", string.Format("{0}%", nome));
                 SqlDataReader reader = command.ExecuteReader();
